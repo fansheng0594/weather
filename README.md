@@ -1,7 +1,8 @@
 # Weather
 
-基于  [高德开放平台](https://lbs.amap.com/dev/id/newuser) 的 PHP 天气信息组件。
 [![Build Status](https://travis-ci.org/fansheng0594/weather.svg?branch=master)](https://travis-ci.org/fansheng0594/weather)
+[![StyleCI](https://github.styleci.io/repos/305702187/shield?branch=master)](https://github.styleci.io/repos/305702187?branch=master)
+基于  [高德开放平台](https://lbs.amap.com/dev/id/newuser) 的 PHP 天气信息组件。
 
 ## 安装
 
