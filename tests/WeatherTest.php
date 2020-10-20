@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the fan/weather.
+ *
+ * (c) fansheng <fansheng0594@163.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Fan\Weather\Tests;
 
 use Fan\Weather\Exceptions\HttpException;
@@ -61,7 +70,7 @@ class WeatherTest extends TestCase
                 'city' => '深圳',
                 'output' => 'json',
                 'extensions' => 'base',
-            ]
+            ],
         ])->andReturn($response);
 
         // 将 `getHttpClient` 方法替换为上面创建的 http client 为返回值的模拟方法。
