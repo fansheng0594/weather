@@ -119,4 +119,30 @@ class WeatherTest extends TestCase
         $weather->setGuzzleOptions(['timeout' => 500]);
         $this->assertEquals(500, $weather->getHttpClient()->getConfig('timeout'));
     }
+
+    public function testGetLiveWeather()
+    {
+        $w = \Mockery::mock(Weather::class, ['8b29858f72456bf5065d43c4500d269c'])->makePartial();
+
+        $successJson = '{"success": true}';
+        $w->expects()->getWeather('深圳', 'base', 'json')->andReturn($successJson);
+        $this->assertSame($successJson, $w->getLiveWeather('深圳', 'json'));
+
+        $successXML = '<hello>success</hello>';
+        $w->expects()->getWeather('深圳', 'base', 'xml')->andReturn($successXML);
+        $this->assertSame($successXML, $w->getLiveWeather('深圳', 'xml'));
+    }
+
+    public function testGetForecastsWeather()
+    {
+        $w = \Mockery::mock(Weather::class, ['8b29858f72456bf5065d43c4500d269c'])->makePartial();
+
+        $successJson = '{"success": true}';
+        $w->expects()->getWeather('深圳', 'all', 'json')->andReturn($successJson);
+        $this->assertSame($successJson, $w->getForecastsWeather('深圳', 'json'));
+
+        $successXML = '<hello>success</hello>';
+        $w->expects()->getWeather('深圳', 'all', 'xml')->andReturn($successXML);
+        $this->assertSame($successXML, $w->getForecastsWeather('深圳', 'xml'));
+    }
 }
